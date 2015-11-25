@@ -42,7 +42,7 @@ architecture fmulchan of fmul is
 
 begin
   cat0 <= fmul_in0 & fmul_in1 when fmul_in0(30 downto 0) > fmul_in1(30 downto 0) else
-         fmul_in1 & fmul_in0;
+          fmul_in1 & fmul_in0;
   bg <= cat0(63 downto 32);
   sm <= cat0(31 downto 0);
   
@@ -161,7 +161,7 @@ begin
   
   ex20 <= ex1 - 127;
   ex2 <= ex20(7 downto 0);
-  exman_out10 <= (ex2 + 1) & zero23 when manprd1(45 downto 23) = x"ffffff" else
+  exman_out10 <= (ex2 + 1) & zero23 when manprd1(45 downto 23) = "111" & x"fffff" else
                  ex2 & (manprd1(45 downto 23) + 1);
   exman_out1 <= exman_out10 when (manprd1(22) = '1' and (manprd1(21 downto 0) > 0 or carrysign = '1' or manprd1(23) = '1')) else
                 ex2 & manprd1(45 downto 23);
