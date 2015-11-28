@@ -6,7 +6,7 @@ typedef union {
   float f;
 } UIF;
 
-uint32_t i2f(uint32_t a) {
+uint32_t f2i(uint32_t a) {
   UIF geta, b;
   if ((a & 0x7f800000) == 0x4b000000)
     geta.u = 0;
@@ -17,7 +17,7 @@ uint32_t i2f(uint32_t a) {
   return b.u;
 }
 
-uint32_t f2i(uint32_t a) {
+uint32_t i2f(uint32_t a) {
   UIF b;
   b.u = a;
   b.f = (float)b.i;
